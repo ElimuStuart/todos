@@ -6,4 +6,7 @@ class Todo(models.Model):
     description = models.TextField()
     due_date = models.DateField()
     done = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.title
     
