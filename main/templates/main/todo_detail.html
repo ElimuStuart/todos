@@ -1,0 +1,19 @@
+{% extends "main/base.html" %}
+
+{% block title %} {{ todo.title }} {{ block.super }} {% endblock title %}
+
+{% block main_content %}
+<div class="card text-center">
+  <div class="card-header">
+    Due {{ todo.due_date }}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ todo.title }}</h5>
+    <p class="card-text">{{ todo.description }}</p>
+    <a class="btn btn-danger" href="{% url 'todo_delete' pk=todo.pk %}">Delete</a>
+  </div>
+  <div class="card-footer text-muted">
+    {% if not todo.done %} Not {% endif %} Done
+  </div>
+</div>
+{% endblock main_content %}
